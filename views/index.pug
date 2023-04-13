@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .container
+    if user
+      h3 Welcome back #{user.name}!
+    .header
+      h1 Movie Store
+    if movies && movies.length > 0
+      //- Loop through all movies
+      each movie in movies
+        //- Display title, year, description, rating, and genres
+        .movie
+          .movie-title
+            //- Link to movie with id
+            a(href="/movie/" + movie._id) #{movie.name}
+          .movie-info
+            p Year: #{movie.year}
+            p Description: #{movie.description}
+            p Rating: #{movie.rating}
+            p Genres:
+            ul
+            //- Loop through genres and print as list
+            each genre in movie.genres
+              li #{genre}
+    else
+      p No movies found.
+  
+  
+  

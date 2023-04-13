@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Search Movies
+  
+  form(method="POST", action="/movie/search")
+    .form-group
+      label(for="query") Search Query:
+      input.form-control(name="query", id="query", type="text", required)
+
+    .form-group 
+      input.btn.btn-primary(type="submit", value="Search")
+
+  
